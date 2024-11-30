@@ -14,8 +14,9 @@ import java.util.List;
 @RequestMapping("product")
 public class ProductController {
 
-    @GetMapping("/{productId}")
-    public ResponseEntity<ProductResponse> findProductById(@PathVariable Long productId) {
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> findProductById(
+            @PathVariable(value = "id") Long productId) {
         return ResponseEntity.ok(
                 ProductResponse.builder()
                         .name("Product " + productId)
